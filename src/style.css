@@ -2257,3 +2257,125 @@ textarea:focus-visible {
     gap: 0.75rem;
   }
 }
+
+/* ========================================
+   StudyTrack — Dark Mode
+======================================== */
+
+:root {
+  color-scheme: light;
+
+  --page-bg: #f8f9fc;
+  --surface-bg: #ffffff;
+  --text-primary: #25243a;
+  --text-secondary: #6b7280;
+  --border-color: #e5e7eb;
+  --input-bg: #ffffff;
+  --link-color: #5143c7;
+}
+
+/* Applied when dark mode is enabled */
+html[data-theme="dark"] {
+  color-scheme: dark;
+
+  --page-bg: #151521;
+  --surface-bg: #222232;
+  --text-primary: #f3f4f6;
+  --text-secondary: #b6b8c7;
+  --border-color: #3b3b50;
+  --input-bg: #29293b;
+  --link-color: #b5a8ff;
+}
+
+/* Main page */
+body {
+  background-color: var(--page-bg);
+  color: var(--text-primary);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Common surfaces */
+.site-header,
+.card,
+.stat-card,
+.course-card,
+.assignment-card,
+.calendar-container,
+.calendar-day,
+.profile-card,
+.scripture-card {
+  background-color: var(--surface-bg);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+/* Text */
+h1,
+h2,
+h3,
+p,
+label,
+.section-title {
+  color: inherit;
+}
+
+.text-secondary,
+small,
+.section-description {
+  color: var(--text-secondary);
+}
+
+/* Form controls */
+input,
+select,
+textarea {
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-secondary);
+}
+
+/* Links */
+a {
+  color: var(--link-color);
+}
+
+/* Theme toggle button */
+.theme-button {
+  cursor: pointer;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 0.6rem 0.8rem;
+  background: var(--surface-bg);
+  color: var(--text-primary);
+  transition: transform 0.2s ease, background-color 0.25s ease;
+}
+
+.theme-button:hover {
+  transform: scale(1.05);
+}
+
+/* Scripture card text */
+html[data-theme="dark"] #scripture-text {
+  color: var(--text-primary);
+}
+
+html[data-theme="dark"] .scripture-reference {
+  color: var(--link-color);
+}
+
+html[data-theme="dark"] .scripture-sources a {
+  color: var(--link-color);
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  body,
+  .theme-button {
+    transition: none;
+  }
+}
